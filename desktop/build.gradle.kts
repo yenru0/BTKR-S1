@@ -1,5 +1,3 @@
-import org.gradle.internal.os.OperatingSystem
-
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 java.sourceSets["main"].java {
@@ -20,6 +18,11 @@ tasks.register<JavaExec>("run") {
     standardInput = System.`in`
     workingDir = File(project.extra["assetDir"] as String)
     isIgnoreExitValue = true
+    val args = jvmArgs!!.toMutableList()
+    val os = System.getProperty("os.name").lowercase()
+    if (os.contains("mac")) args.add("-XstartOnFirstThread")
+    jvmArgs = args
+
 }
 
 tasks.register<JavaExec>("debug") {

@@ -22,7 +22,7 @@ public class MainScreen implements Screen {
     private Vector2 playerAcc = new Vector2(0, 0);
     private boolean isJumpable = false;
 
-    private Vector2 gravity = new Vector2(0, -30);
+    private Vector2 gravity = new Vector2(0, -50);
     private ShapeRenderer shapeRenderer;
 
     public MainScreen(MainGame game) {
@@ -37,7 +37,7 @@ public class MainScreen implements Screen {
 
     public void handleInput(float dt) {
         if (isJumpable && Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
-            playerVel.add(new Vector2(0, 50));
+            playerVel.add(new Vector2(0, 100));
             isJumpable = false;
         }
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
