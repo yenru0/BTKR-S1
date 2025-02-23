@@ -36,6 +36,8 @@ project(":core") {
     dependencies {
         val gdxVersion: String by project.extra
         "api"("com.badlogicgames.gdx:gdx:$gdxVersion")
+        "api"("com.badlogicgames.gdx:gdx-box2d:$gdxVersion")
+        "api"("com.badlogicgames.gdx:gdx-freetype:$gdxVersion")
     }
 }
 
@@ -46,5 +48,7 @@ project(":desktop") {
         "implementation"(project(":core"))
         "api"("com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion")
         "api"("com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop")
+        "implementation"("com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop")
+        "implementation"("com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop")
     }
 }
